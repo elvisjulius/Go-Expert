@@ -16,6 +16,11 @@ type Cliente struct {
 	Endereco
 }
 
+func (c Cliente) Desativar() {
+	c.Ativo = false
+	fmt.Printf("O cliente %s foi desativado e seu status é %t\n", c.Nome, c.Ativo)
+}
+
 func main() {
 	wesley := Cliente{
 		Nome:  "Wesley",
@@ -23,8 +28,8 @@ func main() {
 		Ativo: true,
 	}
 
-	wesley.Ativo = false
-	wesley.Endereco.Cidade = "São Paulo"
-
 	fmt.Println(wesley.Ativo)
+	wesley.Desativar()
+	fmt.Println(wesley.Ativo)
+	wesley.Endereco.Cidade = "São Paulo"
 }
