@@ -9,6 +9,18 @@ type Endereco struct {
 	Estado     string
 }
 
+type Pessoa interface {
+	Desativar()
+}
+
+type Empresa struct {
+	Nome string
+}
+
+func (e Empresa) Desativar() {
+
+}
+
 type Cliente struct {
 	Nome  string
 	Idade int
@@ -21,6 +33,10 @@ func (c Cliente) Desativar() {
 	fmt.Printf("O cliente %s foi desativado e seu status é %t\n", c.Nome, c.Ativo)
 }
 
+func Desativacao(pessoa Pessoa) {
+	pessoa.Desativar()
+}
+
 func main() {
 	wesley := Cliente{
 		Nome:  "Wesley",
@@ -28,8 +44,12 @@ func main() {
 		Ativo: true,
 	}
 
+	minhaEmpresa := Empresa{}
+
+	Desativacao(minhaEmpresa)
+	Desativacao(wesley)
+
 	fmt.Println(wesley.Ativo)
-	wesley.Desativar()
 	fmt.Println(wesley.Ativo)
 	wesley.Endereco.Cidade = "São Paulo"
 }
