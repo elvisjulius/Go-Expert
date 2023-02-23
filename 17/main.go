@@ -1,6 +1,10 @@
 package main
 
-func Soma[T int | float64](m map[string]T) T {
+type Number interface {
+	int | float64
+}
+
+func Soma[T Number](m map[string]T) T {
 	var soma T
 	for _, v := range m {
 		soma += v
