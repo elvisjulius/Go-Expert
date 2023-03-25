@@ -3,6 +3,8 @@ package main
 import (
 	"curso-go/matematica"
 	"fmt"
+
+	"github.com/google/uuid"
 )
 
 func main() {
@@ -12,4 +14,5 @@ func main() {
 	fmt.Println(carro.Andar())
 	fmt.Println("O resultado: ", s)
 	fmt.Println(matematica.A)
+	fmt.Println(uuid.New())
 }
